@@ -84,7 +84,6 @@ var symbols = [
 ];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var pwLength = "";
-var generatedPassword = "";
 var selectedCharacters = [];
 
 function generatePassword() {
@@ -94,55 +93,59 @@ function generatePassword() {
   var pwLength = prompt(
     "Choose a length for your password. It must be between 8 and 128."
   );
+
   // If password length does not meet criteria, function ends
   if (!pwLength || pwLength < 8 || pwLength > 128) {
     window.alert("You must choose a number between 8 and 128. Try again.");
     return;
   }
   alert("Great! Let's add some uppercase letters.");
+
   // If password length meets criteria, move on to adding uppercase letters
-  var okUpperCase = window.confirm("Click OK to add uppercase letters.");
-  if (okUpperCase) {
-    okUpperCase = upperCase[Math.floor(Math.random() * upperCase.length)];
-    selectedCharacters.push(okUpperCase);
-    console.log(selectedCharacters);
-    alert("Awesome! Let's add some lowercase letters.");
-  }
+  var okUpperCase = confirm("Click OK.");
+  alert("Awesome! Let's add some lowercase letters.");
+
   // Add lowercase letters
-  var okLowerCase = window.confirm("Click OK to add lowercase letters.");
-  if (okLowerCase) {
-    okLowerCase = lowerCase[Math.floor(Math.random() * lowerCase.length)];
-    selectedCharacters.push(okLowerCase);
-    console.log(selectedCharacters);
-    alert("Rad! Let's add some numbers.");
-  }
+  var okLowerCase = window.confirm("Click OK.");
+  alert("Rad! Let's add some numbers. ");
+
   // Add numbers
-  var okNumbers = window.confirm("Click OK to add numbers.");
-  if (okNumbers) {
-    okNumbers = numbers[Math.floor(Math.random() * numbers.length)];
-    selectedCharacters.push(okNumbers);
-    console.log(selectedCharacters);
-    alert("Fantastic! Let's add some symbols.");
-  }
+  var okNumbers = window.confirm("Click OK.");
+  alert("Fantastic! Let's add some special characters.");
+
   // Add symbols
-  var okSymbols = window.confirm("Click OK to add symbols.");
-  if (okSymbols) {
-    okSymbols = symbols[Math.floor(Math.random() * symbols.length)];
-    selectedCharacters.push(okSymbols);
-    console.log(selectedCharacters);
-    alert("Almost done! Click OK!");
-  }
+  var okSymbols = window.confirm("Click OK.");
 }
+var selectedCharacters = [];
+if (okUpperCase) {
+  selectedCharacters = selectedCharacters.concat(upperCase);
+}
+if (okLowerCase) {
+  selectedCharacters = selectedCharacters.concat(lowerCase);
+}
+if (okNumbers) {
+  selectedCharacters = selectedCharacters.concat(numbers);
+}
+if (okSymbols) {
+  selectedCharacters = selectedCharacters(symbols);
+}
+console.log(selectedCharacters);
 
 // Compile selected characters into password
+var generatedPassword = [];
+for (var i = 0; i < pwLength; i++) {
+  var randomize =
+    selectedCharacters[Math.floor(Math.random() * selectedCharacters.length)];
+  generatedPassword.push(randomize);
+}
+var randomizedPassword = generatedPassword.join("");
+console.log(randomizedPassword);
 
-// Write password
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  passwordText.value = generatedPassword;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
