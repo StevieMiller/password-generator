@@ -115,37 +115,38 @@ function generatePassword() {
 
   // Add symbols
   var okSymbols = window.confirm("Click OK.");
-}
-var selectedCharacters = [];
-if (okUpperCase) {
-  selectedCharacters = selectedCharacters.concat(upperCase);
-}
-if (okLowerCase) {
-  selectedCharacters = selectedCharacters.concat(lowerCase);
-}
-if (okNumbers) {
-  selectedCharacters = selectedCharacters.concat(numbers);
-}
-if (okSymbols) {
-  selectedCharacters = selectedCharacters(symbols);
-}
-console.log(selectedCharacters);
 
-// Compile selected characters into password
-var generatedPassword = [];
-for (var i = 0; i < pwLength; i++) {
-  var randomize =
-    selectedCharacters[Math.floor(Math.random() * selectedCharacters.length)];
-  generatedPassword.push(randomize);
-}
-var randomizedPassword = generatedPassword.join("");
-console.log(randomizedPassword);
+  var selectedCharacters = [];
+  if (okUpperCase) {
+    selectedCharacters = selectedCharacters.concat(upperCase);
+  }
+  if (okLowerCase) {
+    selectedCharacters = selectedCharacters.concat(lowerCase);
+  }
+  if (okNumbers) {
+    selectedCharacters = selectedCharacters.concat(numbers);
+  }
+  if (okSymbols) {
+    selectedCharacters = selectedCharacters.concat(symbols);
+  }
+  console.log(selectedCharacters);
 
+  // Compile selected characters into password
+  var generatedPassword = [];
+  for (var i = 0; i < pwLength; i++) {
+    var randomize =
+      selectedCharacters[Math.floor(Math.random() * selectedCharacters.length)];
+    generatedPassword.push(randomize);
+  }
+  var randomizedPassword = generatedPassword.join("");
+  console.log(randomizedPassword);
+  return randomizedPassword;
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  passwordText.value = generatedPassword;
+  passwordText.value = password;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
