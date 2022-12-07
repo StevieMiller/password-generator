@@ -105,17 +105,18 @@ function generatePassword() {
   var okUpperCase = confirm("Click OK.");
   alert("Awesome! Let's add some lowercase letters.");
 
-  // Add lowercase letters
+  // Adds lowercase letters
   var okLowerCase = window.confirm("Click OK.");
   alert("Rad! Let's add some numbers. ");
 
-  // Add numbers
+  // Adds numbers
   var okNumbers = window.confirm("Click OK.");
   alert("Fantastic! Let's add some special characters.");
 
-  // Add symbols
+  // Adds symbols
   var okSymbols = window.confirm("Click OK.");
 
+  // Adds characters to a single array
   var selectedCharacters = [];
   if (okUpperCase) {
     selectedCharacters = selectedCharacters.concat(upperCase);
@@ -131,18 +132,21 @@ function generatePassword() {
   }
   console.log(selectedCharacters);
 
-  // Compile selected characters into password
+  // Empty array for selected password length
   var generatedPassword = [];
+  // Checks for user selected password length
   for (var i = 0; i < pwLength; i++) {
+    // Chooses random characters from selectedCharacters variable
     var randomize =
       selectedCharacters[Math.floor(Math.random() * selectedCharacters.length)];
     generatedPassword.push(randomize);
   }
+  // Compiles randomly chosen characters into password
   var randomizedPassword = generatedPassword.join("");
   console.log(randomizedPassword);
   return randomizedPassword;
 }
-// Write password to the #password input
+// Writes password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
