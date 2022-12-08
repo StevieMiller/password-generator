@@ -95,26 +95,35 @@ function generatePassword() {
   );
 
   // If password length does not meet criteria, function ends
-  if (!pwLength || pwLength < 8 || pwLength > 128) {
-    alert("You must choose a number between 8 and 128. Try again.");
+  if (!pwLength) {
     return;
+  }
+  if (pwLength < 8 || pwLength > 128) {
+    prompt("You must choose a number between 8 and 128. Try again.");
   }
   alert("Great! Let's add some uppercase letters.");
 
   // If password length meets criteria, move on to adding uppercase letters
-  var okUpperCase = confirm("Click OK to include uppercase letters.");
+  // Adds or omits uppercase letters
+  var okUpperCase = confirm(
+    "Click OK to include uppercase letters. Click cancel to omit."
+  );
   alert("Awesome! Let's add some lowercase letters.");
 
-  // Adds lowercase letters
-  var okLowerCase = confirm("Click OK.");
+  // Adds or omits lowercase letters
+  var okLowerCase = confirm(
+    "Click OK to include lowercase letters. Click cancel to omit."
+  );
   alert("Rad! Let's add some numbers. ");
 
-  // Adds numbers
-  var okNumbers = confirm("Click OK.");
+  // Adds or omits numbers
+  var okNumbers = confirm("Click OK to include numbers. Click cancel to omit.");
   alert("Fantastic! Let's add some special characters.");
 
-  // Adds symbols
-  var okSymbols = confirm("Click OK.");
+  // Adds or omits special characters
+  var okSymbols = confirm(
+    "Click OK to include special characters. Click cancel to omit."
+  );
 
   // Adds characters to a single array
   var selectedCharacters = [];
