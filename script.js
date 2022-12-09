@@ -140,8 +140,7 @@ function generatePassword() {
     alert("You must choose at least one criteria! Try again.");
   }
 
-  // Adds characters to a single array
-  var selectedCharacters = [];
+  // Cycles through selected characters to be used
   if (okUpperCase) {
     selectedCharacters = selectedCharacters.concat(upperCase);
     console.log(selectedCharacters);
