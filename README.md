@@ -6,7 +6,7 @@ This is a password generator that uses prompts, alerts, and confirm window boxes
 
 ## Installation
 
-This project will work on most browsers. Check it out here: https://steviemiller.github.io/unique-password-generator/
+This project will work on most browsers. Check it out here: https://steviemiller.github.io/secure-password-generator/
 
 ![Screenshot of Password Generator](assets/password-generator.png)
 
