@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a password generator that uses prompts, alerts, and confirm window boxes to create a secure password. The user chooses from uppercase and lowercase letters, numbers, and symbols. This project was created for a homework assignment for Coding Bootcamp.
+This is a password generator that uses prompts, alerts, and confirm window boxes to create a secure password. The user chooses a password length between 8 and 128 characters. Then they choose whether or not to include uppercase and lowercase letters, numbers, and special characters. The generator then generates the user's secure password. This project was created for a homework assignment for Coding Bootcamp.
 
 ## Installation
 

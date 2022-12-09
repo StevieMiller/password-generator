@@ -108,38 +108,56 @@ function generatePassword() {
   var okUpperCase = confirm(
     "Click OK to include uppercase letters. Click cancel to omit."
   );
-  alert("Awesome! Let's add some lowercase letters.");
-
+  if (okUpperCase) {
+    alert("Great! Let's add some lowercase letters.");
+  } else {
+    alert("Okay, let's add other characters.");
+  }
   // Adds or omits lowercase letters
   var okLowerCase = confirm(
     "Click OK to include lowercase letters. Click cancel to omit."
   );
-  alert("Rad! Let's add some numbers. ");
-
+  if (okLowerCase) {
+    alert("Awesome! Let's add some numbers. ");
+  } else {
+    alert("Okay, let's add other characters.");
+  }
   // Adds or omits numbers
   var okNumbers = confirm("Click OK to include numbers. Click cancel to omit.");
-  alert("Fantastic! Let's add some special characters.");
-
+  if (okNumbers) {
+    alert("Rad! Let's add some special characters.");
+  } else {
+    alert("Okay, let's add other characters.");
+  }
   // Adds or omits special characters
   var okSymbols = confirm(
     "Click OK to include special characters. Click cancel to omit."
   );
+  if (okSymbols) {
+    alert("Fantastic! We're almost done!");
+  }
+  if (!okUpperCase && !okLowerCase && !okNumbers && !okSymbols) {
+    alert("You must choose at least one criteria! Try again.");
+  }
 
   // Adds characters to a single array
   var selectedCharacters = [];
   if (okUpperCase) {
     selectedCharacters = selectedCharacters.concat(upperCase);
+    console.log(selectedCharacters);
   }
   if (okLowerCase) {
     selectedCharacters = selectedCharacters.concat(lowerCase);
+    console.log(selectedCharacters);
   }
   if (okNumbers) {
     selectedCharacters = selectedCharacters.concat(numbers);
+    console.log(selectedCharacters);
   }
   if (okSymbols) {
     selectedCharacters = selectedCharacters.concat(symbols);
+    console.log(selectedCharacters);
   }
-  console.log(selectedCharacters);
 
   // Empty array for selected password length
   var generatedPassword = [];
